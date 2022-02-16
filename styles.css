@@ -1,0 +1,41 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Arial Nova';
+}
+
+body {
+    background-color: #181818;
+    margin: 0;
+    padding: 0;
+}
+
+.game-area {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bingo-container {
+    display: grid;
+    grid-template-columns: repeat(5, 4em);
+    grid-template-rows: repeat(6, 4em);
+    gap: .25em;
+}
+
+.bingo-tile {
+    border: 1px solid #888;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.borderless {
+    border: none;
+}
+
+.active {
+    border: 1px solid white;
+}
