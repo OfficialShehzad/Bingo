@@ -12,7 +12,8 @@ body {
 .game-area {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -36,6 +37,27 @@ body {
     border: none;
 }
 
+/* for selected tiles */
 .active {
     border: 1px solid white;
+}
+
+
+/* Hide computer's bingo table */
+/* Comment out this code if you want to view the computer's bingo table */
+.computer {
+    display: none;
+}
+
+
+/* for the tables to be arranged properly in smaller screens */
+@media (max-width: 480px) {
+    .game-area {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
 }

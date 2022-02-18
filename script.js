@@ -15,21 +15,22 @@ bingoTiles.on("click", (e) => {
 })
 
 
+//function to create random array for the computer's Bingo table
+//Call function to create computer's bingo table
+function createComputerBingoTable(){
 
-//insert first number to computer generated array;
-var firstRandomNumber = Math.ceil(Math.random() * 25)
-computerBingoTable.push(firstRandomNumber);
+    for (var i = 0; i < 25; i++) {
+        var randomNumber = Math.ceil(Math.random() * 25);
+        var checkedNumber = ifRandomNumberExists(randomNumber);
+        computerBingoTable.push(checkedNumber);
+    }
+    console.log(computerBingoTable);
 
+    for(var i = 0; i < 25; i++) {
+        $(".c" + i).text(computerBingoTable[i])
+    }
 
-
-//create random array for the computer's Bingo table
-for (var i = 1; i < 25; i++) {
-    var randomNumber = Math.ceil(Math.random() * 25);
-    var checkedNumber = ifRandomNumberExists(randomNumber);
-    computerBingoTable.push(checkedNumber);
 }
-console.log(computerBingoTable);
-
 
 
 //for checking if the number to be inserted already exists
@@ -41,11 +42,3 @@ function ifRandomNumberExists(number) {
         return number;
     }
 }
-
-
-
-
-
-// for inserting into each columns
-// var i = 0
-// $("." + i).text(randomNumber)
