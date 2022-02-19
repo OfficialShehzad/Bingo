@@ -42,11 +42,38 @@ body {
     border: 1px solid white;
 }
 
+/* to enter numbers in user bingo table  */
+.enter-number {
+    color: white;
+}
 
-/* Hide computer's bingo table */
-/* Comment out this code if you want to view the computer's bingo table */
-.computer {
+
+/* Hide stuff */
+.hidden {
     display: none;
+}
+
+/* start game  */
+.start-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px 35px;
+    background-color: transparent;
+    color: white;
+    border: .25px solid white;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    color: black;
+    background-color: whitesmoke;
 }
 
 
@@ -59,5 +86,10 @@ body {
         justify-content: space-around;
         align-items: center;
     }
+
+    .hidden {
+        display: none;
+    }
+    
     
 }

@@ -1,18 +1,59 @@
 var computerBingoTable = [];
+var playerBingoTable = [];
 
 
-var bingoTiles = $(".bingo-tile");
+var started = false;
+
+
+var playerBingoTiles = $(".player .bingo-tile");
+
+
+
+
+// start the game 
+$(".vscomputer").on("click", () => {
+    started = true;
+    if(started == true) {
+        $(".start-container").css("min-height", "0")
+        $(".btn").addClass("hidden")
+        $(".game-area").removeClass("hidden")
+
+
+        playerBingoTilesSelectable()
+        createComputerBingoTable()
+    }
+})
+
+
+
 
 
 //to select a tile
-bingoTiles.on("click", (e) => {
-    var selectedTile = $(e.target)
+function playerBingoTilesSelectable() {
+    playerBingoTiles.on("click", (e) => {
+        var selectedTile = $(e.target)
 
-    // highlight all tiles except for the row with BINGO
-    if(!(selectedTile.attr("class").includes("borderless"))){
-        selectedTile.toggleClass("active")
-    }
-})
+        // highlight all tiles except for the row with BINGO
+        if($(".active").length === 0){
+            if(!(selectedTile.attr("class").includes("borderless"))){
+                selectedTile.addClass("active")
+                console.log("selected");
+                enterPlayerBingoTable(selectedTile)
+            }
+        } else if($(".active").length === 1) {
+            if(!(selectedTile.attr("class").includes("borderless"))){
+                selectedTile.removeClass("active")
+                console.log("unselected");
+            }
+        }
+
+    })
+}
+
+//to enter numbers in the user selected tile
+function enterPlayerBingoTable(selectedTile) {
+
+}
 
 
 //function to create random array for the computer's Bingo table
