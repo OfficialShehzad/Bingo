@@ -38,12 +38,14 @@ function playerBingoTilesSelectable() {
             if(!(selectedTile.attr("class").includes("borderless"))){
                 selectedTile.addClass("active")
                 console.log("selected");
+                
                 enterPlayerBingoTable(selectedTile)
             }
         } else if($(".active").length === 1) {
             if(!(selectedTile.attr("class").includes("borderless"))){
                 selectedTile.removeClass("active")
                 console.log("unselected");
+                $(".enter-number").text("")
             }
         }
 
