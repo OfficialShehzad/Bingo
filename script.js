@@ -28,34 +28,59 @@ $(".vscomputer").on("click", () => {
 
 
 
-//to select a tile
+//to select and unselect a tile
 function playerBingoTilesSelectable() {
     playerBingoTiles.on("click", (e) => {
         var selectedTile = $(e.target)
 
         // highlight all tiles except for the row with BINGO
         if($(".active").length === 0){
-            if(!(selectedTile.attr("class").includes("borderless"))){
-                selectedTile.addClass("active")
-                console.log("selected");
-                
-                enterPlayerBingoTable(selectedTile)
-            }
-        } else if($(".active").length === 1) {
-            if(!(selectedTile.attr("class").includes("borderless"))){
-                selectedTile.removeClass("active")
-                console.log("unselected");
-                $(".enter-number").text("")
-            }
+    
+            selectTile(selectedTile)
+
+        } else if ($(".active").length === 1) {
+
+            unselectTile(selectedTile)
+
         }
 
     })
 }
 
-//to enter numbers in the user selected tile
-function enterPlayerBingoTable(selectedTile) {
 
+
+//function to make tile selectable
+function selectTile(selectedTile) {
+    if(!(selectedTile.attr("class").includes("borderless"))){
+        selectedTile.addClass("active")
+        console.log("selected");
+
+        var input = $(".input-box")
+        var inputButton = $(".input-button")
+                                
+        inputButton.on("click", () => {
+            playerBingoTable.push(input.val())
+            input.val("")
+            console.log(playerBingoTable);
+        })
+    }
 }
+
+
+
+//function to deselect tile
+function unselectTile(selectedTile) {
+    if(!(selectedTile.attr("class").includes("borderless"))){
+        selectedTile.removeClass("active")
+        console.log("unselected");
+    }
+}
+
+
+
+ 
+
+
 
 
 //function to create random array for the computer's Bingo table
